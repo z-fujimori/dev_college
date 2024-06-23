@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('name');  // イベント名
-            $table->date('start_date');  // 開始日
-            $table->date('end_date');  // 終了日
+            $table->dateTime('start_date');  // 開始日
+            $table->dateTime('end_date');  // 終了日
             $table->timestamps();
         });
     }
