@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\SpeechController;
+use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/yy', function(){
+    return view('speech.a');
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,3 +43,7 @@ Route::post('/calendar/event', [EventController::class, 'getEvent'])->name('even
 Route::post('/calendar/{event}', [EventController::class, 'update'])->name('event.update');
 
 require __DIR__.'/auth.php';
+
+Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+Route::post('/chat', [ChatController::class, 'sendMessage'])->name('chat.post');
+Route::get('/chat/{user}', [ChatController::class, 'openChat']);

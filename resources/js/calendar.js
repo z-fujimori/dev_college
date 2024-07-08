@@ -14,9 +14,12 @@ var calendarEl = document.getElementById("calendar");
 let calendar = new Calendar(calendarEl, {
     plugins: [interactionPlugin, dayGridPlugin, timeGridPlugin], // 
 
+    timeZone: 'Asia/Tokyo',
+
     // 最初に表示させる形式
     // initialView: "dayGridMonth",
     initialView: "timeGridWeek",
+    // initialView: "timeGridDay",
 
     // ヘッダーの設定（左/中央/右）
     headerToolbar: {
@@ -24,12 +27,23 @@ let calendar = new Calendar(calendarEl, {
         center: "title",
         right: "",
     },
+
+    allDaySlot: false,
+    
+    slotMinTime: "10:00:00",
+    slotMaxTime: "22:00:00",
+    
+    slotLabelInterval:　"01:00",
+    
+    expandRows: true, // 行の高さを調整
+    
     
     // 以下追記
     selectable: true,  // 複数日選択可能
     select: function (info) {  // 選択時の処理
-        console.log(info)
-        
+        console.log(info.start);
+        console.log(info.start.valueOf());
+        console.log("a");
         const eventName = prompt("予定を入力してください");
         
         // 入力された時に実行される
@@ -89,6 +103,9 @@ let calendar = new Calendar(calendarEl, {
                 // バリデーションエラーなど
                 alert("登録に失敗しました");
             });
+    },
+    eventClick: function(info){
+        
     },
 });
 

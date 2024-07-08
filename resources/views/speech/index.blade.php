@@ -9,8 +9,10 @@
   
   <x-app-layout>
     <body>
-      <input id="inputText" type="text" >
-      <input type="button" value="Hello World!" onclick="say('Hello World!')">
+      <div class="py-12 mx-12">
+        <input id="inputText" value="こんにちわ" type="text" class="font-semibold text-xl text-green-950">
+        <input type="button" value="Hello World!" onclick="say()" class="hover:bg-green-300">
+      </div>
     </body>
   </x-app-layout>
 

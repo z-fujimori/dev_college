@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Direct_message extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['name', 'start_date', 'end_date'];  
     
-    public function shifts(){
-        return $this->hasMany(Shift::class);
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

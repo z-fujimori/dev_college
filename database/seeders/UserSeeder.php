@@ -16,10 +16,31 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->insert([
-            'name' => 'test',
-            'email' => 'test@test',
-            'password' => Hash::make('testtest')
-        ]);
+        $seedDatas = [
+                [
+                    'name' => 'test',
+                    'email' => 'test@test',
+                    'password' => Hash::make('testtest')
+                ],
+                [
+                    'name' => 'test2',
+                    'email' => 'test2@test',
+                    'password' => Hash::make('testtest')
+                ],
+                [
+                    'name' => 'テストユーザー',
+                    'email' => 'testuser@test',
+                    'password' => Hash::make('testtest')
+                ],
+                [
+                    'name' => 'てす',
+                    'email' => 'tes@test',
+                    'password' => Hash::make('testtest')
+                ]
+            ];
+        
+        foreach ($seedDatas as $data) {
+            DB::table('users')->insert($data);
+        }
     }
 }

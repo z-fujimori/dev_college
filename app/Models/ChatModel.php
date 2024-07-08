@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class ChatModel extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['name', 'start_date', 'end_date'];  
+    protected $table = 'chats';
     
-    public function shifts(){
-        return $this->hasMany(Shift::class);
+    public function direct_messages()
+    {
+        return $this->hasMany(Direct_essage::class);
     }
 }

@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_photo_path', // この行を追加
     ];
 
     /**
@@ -42,4 +43,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+    
+    public function shifts(){
+        return $this->hasMany(Shift::class);
+    }
+    
+    public function rooms(){
+        return $this->belongsToMany(Room::class);
+    }
+    
+    
 }
