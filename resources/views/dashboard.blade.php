@@ -15,6 +15,47 @@
                     {{ __("You're logged in!") }}
                 </div>
             </div>
+            
+            <br>
+            
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <form action="/posts" method="POST">
+                        @csrf
+                        <div class="title">
+                            <h2>Title</h2>
+                            <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}" />
+                            @if($errors->has('post.title'))
+                            　　{{ $errors->first('post.title') }}
+                            @endif 
+                        </div>
+                        <div class="body">
+                            <h2>Body</h2>
+                            <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ old('post.body') }}</textarea>
+                            @if($errors->has('post.body'))
+                            　　{{ $errors->first('post.body') }}
+                            @endif 
+                        </div>
+                        <input type="submit" value="store"/>
+                    </form>
+                </div>
+            </div>
+            
+            <br>
+            
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <p class="text-xl font-bold">投稿</p>
+                    
+                    @foreach ($posts as $post)
+                        <div class="bg-gray-200 text-gray-800 rounded-lg ">
+                            <div class='text-xl mx-3'>{{ $post->title }}</>
+                            <p class='body mx-5'>{{ $post->body }}</p>
+                        </div>
+                        <br />
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 </x-app-layout>
