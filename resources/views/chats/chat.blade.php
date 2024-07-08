@@ -76,7 +76,31 @@
             elementInputMessage.value = "";
         }
         
-
+        // 受信処理のために以下を追加
+        window.addEventListener("DOMContentLoaded", () => {
+            const elementListMessage = document.getElementById("list_message");
+            
+            
+            // Listen開始と、イベント発生時の処理の定義
+            window.Echo.private('chat').listen('MessageSent', (e) => {
+                console.log(e);
+                
+                // 受け取ったメッセージのchat_idがこのページのchat_idと一致する場合のみ表示
+                if (e.chat.chat_id === chatId) {
+                    let strUsername = e.chat.userName;
+                    let strMessage = e.chat.body;
+        
+                    let elementLi = document.createElement("li");
+                    let elementUsername = document.createElement("strong");
+                    let elementMessage = document.createElement("div");
+                    elementUsername.textContent = strUsername;
+                    elementMessage.textContent = strMessage;
+                    elementLi.append(elementUsername);
+                    elementLi.append(elementMessage);
+                    elementListMessage.prepend(elementLi); // リストの一番上に追加
+                }
+            });
+        });
         
     </script>
 </x-app-layout>
