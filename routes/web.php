@@ -37,10 +37,11 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/speech', [SpeechController::class, 'index'])->name('say');
 
-Route::view('/calendar', 'calendar/calendar')->name('calendar');
-Route::post('/calendar', [EventController::class, 'store'])->name('event.store');
+// Route::view('/calendar', 'calendar/calendar')->name('calendar');
+Route::get('/calendar', [EventController::class, 'show'])->name('calendar');
+Route::post('/calendar/store', [EventController::class, 'store'])->name('event.store');
 Route::post('/calendar/event', [EventController::class, 'getEvent'])->name('event.get');
-Route::post('/calendar/{event}', [EventController::class, 'update'])->name('event.update');
+Route::put('/calendar/updates', [EventController::class, 'update'])->name('event.update');
 
 require __DIR__.'/auth.php';
 
