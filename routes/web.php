@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\SpeechController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ComentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,10 @@ Route::get('/', function () {
 
 Route::get('/dashboard',  [PostController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::post('/posts', [PostController::class, 'store']);
+// Route::post('/posts/{post}'[Post])
+
+Route::get('/coment',[ComentController::class,'allComent'])->name('coment.all');
+Route::get('/coment/getChild/{coment}',[ComentController::class,'getChild'])->name('coment.getChild');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
