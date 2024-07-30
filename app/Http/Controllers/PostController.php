@@ -29,7 +29,8 @@ class PostController extends Controller
         
         $input = $request['post'];
         $input += ["user_id"=>auth()->user()->id];
-        $post->fill($input)->save();
+        // $post->fill($input)->save();
+        $post->create($input);
         return redirect('/dashboard');
     }
 }
