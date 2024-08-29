@@ -27,7 +27,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard',  [PostController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',  [PostController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/index',  [PostController::class, 'index'])->middleware(['auth', 'verified'])->name('index');
 Route::post('/posts', [PostController::class, 'store']);
 // Route::post('/posts/{post}'[Post])
 

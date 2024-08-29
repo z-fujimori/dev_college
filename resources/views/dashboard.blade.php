@@ -54,6 +54,9 @@
                         </div>
                         <br />
                     @endforeach
+                    <div class="flex justfy-center">
+                        {{ $posts->links('pagination::bootstrap-5') }}
+                    </div>
                 </div>
             </div>
         </div>

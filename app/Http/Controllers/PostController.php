@@ -10,9 +10,13 @@ use App\Http\Requests\PostRequest;
 class PostController extends Controller
 {
     //
-    public function index(Post $post)
+    public function dashboard(Post $post)
     {
-        return view('dashboard')->with(['posts' => $post->orderBy('updated_at', 'DESC')->get()]);
+        return view('dashboard')->with(['posts' => $post->orderBy('updated_at', 'DESC')->paginate(2)]);
+    }
+    
+    public function index(Post $post){
+        return view('posts.index')->with(['posts' => $post->orderBy('updated_at', 'DESC')->paginate(2)]);
     }
     
     public function store(PostRequest $request, Post $post)
