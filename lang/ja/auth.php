@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => '認証情報は記録と一致しません',
+    'password' => '入力されたパスワードが間違っています',
+    'throttle' => 'ログイン試行回数が多すぎます。秒後に再試行してください',
 
 ];

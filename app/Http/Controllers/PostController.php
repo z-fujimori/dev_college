@@ -15,6 +15,10 @@ class PostController extends Controller
         return view('dashboard')->with(['posts' => $post->orderBy('updated_at', 'DESC')->paginate(2)]);
     }
     
+    public function testform(Request $request){
+        dd($request["test"]);
+    }
+    
     public function index(Post $post){
         return view('posts.index')->with(['posts' => $post->orderBy('updated_at', 'DESC')->paginate(2)]);
     }

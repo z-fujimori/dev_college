@@ -1,0 +1,13 @@
+.style {
+    background-color: brown;
+    font-size: 54px;
+}
+
+[classname="name"] {
+    background-color: rgb(255, 0, 128);
+}
+
+#styleid {
+    /*background-color: rgb(255, 255, 128);*/
+    font-size: 54px;
+}

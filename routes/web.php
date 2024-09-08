@@ -49,6 +49,8 @@ Route::post('/calendar/store', [EventController::class, 'store'])->name('event.s
 Route::post('/calendar/event', [EventController::class, 'getEvent'])->name('event.get');
 Route::put('/calendar/updates', [EventController::class, 'update'])->name('event.update');
 
+Route::post('/testform', [PostController::class, 'testform']);
+
 require __DIR__.'/auth.php';
 
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
