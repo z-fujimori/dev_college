@@ -53,6 +53,12 @@ Route::post('/testform', [PostController::class, 'testform']);
 
 require __DIR__.'/auth.php';
 
+// prefixで一括で/adminを追加、nameも区別するためにname列にnameメソッドによりはadmin.を先頭につける
+Route::prefix('admin')->name('admin.')->group(function(){
+    require __DIR__.'/admin.php';
+});
+
+
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
 Route::post('/chat', [ChatController::class, 'sendMessage'])->name('chat.post');
 Route::get('/chat/{user}', [ChatController::class, 'openChat']);
