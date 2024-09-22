@@ -55,6 +55,11 @@ require __DIR__.'/auth.php';
 
 // prefixで一括で/adminを追加、nameも区別するためにname列にnameメソッドによりはadmin.を先頭につける
 Route::prefix('admin')->name('admin.')->group(function(){
+    
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->middleware(['auth:admin'])->name('dashboard');
+    
     require __DIR__.'/admin.php';
 });
 
