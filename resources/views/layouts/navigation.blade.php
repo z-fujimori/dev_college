@@ -26,6 +26,7 @@
                     </x-nav-link>
                 </div>
                 
+                
             </div>
 
             <!-- Settings Dropdown -->
@@ -61,6 +62,12 @@
                     </x-slot>
                 </x-dropdown>
             </div>
+            
+            <div  class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <div class="">
+                        検索窓
+                    </div>
+                </div>
 
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
