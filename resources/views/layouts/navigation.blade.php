@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('chat')" :active="request()->routeIs('chat')">
                         {{ __('チャット') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('liketest')" :active="request()->routeIs('liketest')">
+                        {{ __('いいね検証') }}
+                    </x-nav-link>
                 </div>
                 
                 

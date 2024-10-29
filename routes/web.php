@@ -6,6 +6,7 @@ use App\Http\Controllers\SpeechController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ComentController;
+use App\Http\Controllers\LikeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    Route::get('/liketest', [LikeController::class, "show"])->name('liketest');
+    Route::post('/liketest', [LikeController::class, "store"]);
 });
 
 Route::get('/speech', [SpeechController::class, 'index'])->name('say');
@@ -67,3 +71,5 @@ Route::prefix('admin')->name('admin.')->group(function(){
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
 Route::post('/chat', [ChatController::class, 'sendMessage'])->name('chat.post');
 Route::get('/chat/{user}', [ChatController::class, 'openChat']);
+
+
