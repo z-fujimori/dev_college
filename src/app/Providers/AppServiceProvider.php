@@ -21,7 +21,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Paginator::useBootstrapFive(); // これオンにするとブートストラップ起動するからpaginationのカッコの中に'pagination::bootstrap-4'とかって書ける。ただ、これオフにして、breezeのやつ有効にした方がかっこいい
-        \URL::forceScheme('https');
-        $this->app['request']->server->set('HTTPS','on');
+        
+        // local移行のためコメントアウト
+        // \URL::forceScheme('https');
+        // $this->app['request']->server->set('HTTPS','on');
     }
 }
