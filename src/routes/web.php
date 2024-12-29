@@ -7,6 +7,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ComentController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,10 @@ Route::get('/yy', function(){
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('test')->controller(TestController::class)->name('test.')->middleware('auth')->group(function () {
+    Route::get('/', 'index');
 });
 
 Route::get('/dashboard',  [PostController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
