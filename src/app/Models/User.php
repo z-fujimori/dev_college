@@ -44,15 +44,15 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
     
-    
     public function shifts(){
         return $this->hasMany(Shift::class);
     }
-    
     public function rooms(){
         return $this->belongsToMany(Room::class);
     }
-    
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
 
     
     

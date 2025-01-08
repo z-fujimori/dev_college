@@ -32,11 +32,17 @@ class IncludeSeeder extends Seeder
                 'strange' => 5,
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
+            ],
+            [
+                'name' => 'ワイン',
+                'strange' => 15,
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
             ]
         ];
     
-    foreach ($seedDatas as $data) {
-        DB::table('includes')->insert($data);
-    }
+        foreach ($seedDatas as $data) {
+            DB::table('includes')->insert($data);
+        }
     }
 }

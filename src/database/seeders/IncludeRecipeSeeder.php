@@ -44,6 +44,7 @@ class IncludeRecipeSeeder extends Seeder
                 'recipe_id' => 6
             ],
         ];
+        
     
     foreach ($seedDatas as $data) {
         DB::table('include_recipe')->insert($data);

@@ -31,6 +31,7 @@ Route::get('/', function () {
 
 Route::prefix('test')->controller(TestController::class)->name('test.')->middleware('auth')->group(function () {
     Route::get('/', 'index');
+    Route::get('/sort/{user}', 'sort_test');
 });
 
 Route::get('/dashboard',  [PostController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
