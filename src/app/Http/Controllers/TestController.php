@@ -17,7 +17,7 @@ class TestController extends Controller
                 $query->select('recipes.strange');
             }
         ])->get();
-        
+
         // データ整形。max_strange、min_strangeという項目を追加する。
         $return_datas = $datas->map(function ($incl) {
             // `recipes` の中から最大値と最小値を計算
@@ -37,7 +37,7 @@ class TestController extends Controller
         //     recipes AS r ON ir.recipe_id = r.id
         // GROUP BY
         //     ir.include_id;
-        
+
         dd($datas);
         // dump($datas[0]->recipes);
         // dd(max($datas[0]->recipes->strange));
@@ -49,3 +49,4 @@ class TestController extends Controller
         dd($p);
     }
 }
+
